@@ -1,0 +1,2 @@
+# bootloader definition inherited unchanged from the stock board
+include ../TBS_LUCID_H7/hwdef-bl.dat

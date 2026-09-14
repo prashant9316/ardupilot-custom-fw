@@ -1,0 +1,35 @@
+# Product-locked variant of TBS_LUCID_H7 for the custom quadcopter build.
+# Inherits all pins/sensors from the stock board definition. Same
+# APJ_BOARD_ID as TBS_LUCID_H7 so the stock TBS bootloader accepts it.
+#
+# Purpose:
+#  - strip hardware/subsystem code the product does not use
+#  - carry locked (@READONLY) parameter defaults from defaults.parm
+
+include ../TBS_LUCID_H7/hwdef.dat
+
+# ---------------- VTX ----------------
+# IRC Tramp is the only VTX control protocol on this product
+define AP_SMARTAUDIO_ENABLED 0
+
+# ---------------- unused payload/actuator subsystems ----------------
+define HAL_SPRAYER_ENABLED 0
+define AP_GRIPPER_ENABLED 0
+define AP_WINCH_ENABLED 0
+define AP_LANDINGGEAR_ENABLED 0
+define HAL_PARACHUTE_ENABLED 0
+define HAL_MOUNT_ENABLED 0
+
+# ---------------- unused sensor/traffic subsystems ----------------
+define AP_ADSB_ENABLED 0
+define AP_BEACON_ENABLED 0
+define HAL_EFI_ENABLED 0
+define HAL_GENERATOR_ENABLED 0
+
+# ---------------- candidates: confirm before enabling these strips ----------------
+# Lua scripting (~200KB flash). Disable once certain no Lua is needed:
+# define AP_SCRIPTING_ENABLED 0
+# Optical flow sensors:
+# define AP_OPTICALFLOW_ENABLED 0
+# Precision landing:
+# define AC_PRECLAND_ENABLED 0

@@ -1,0 +1,36 @@
+# Product parameter defaults for TBS_LUCID_H7_PROD.
+# Lines ending in @READONLY are locked: the GCS cannot change them and the
+# value is enforced on every boot regardless of stored parameters.
+#
+# NOTE: calibration parameters (INS_ACC*, COMPASS_OFS*, RC*_MIN/MAX/TRIM,
+# battery ampere-offsets) must stay writable or factory calibration and
+# per-unit setup will break. Never mark those @READONLY.
+
+# ---- replicated from stock TBS_LUCID_H7 defaults.parm ----
+SERVO13_FUNCTION 120
+RELAY3_DEFAULT 1
+RELAY4_DEFAULT 1
+RELAY2_DEFAULT 1
+OSD_TYPE2 5
+
+# ---- product configuration locks ----
+# airframe is a quadcopter, not user-changeable
+FRAME_CLASS 1 @READONLY
+
+# VTX control: IRC Tramp on SERIAL1, always enabled
+SERIAL1_PROTOCOL 44 @READONLY
+VTX_ENABLE 1 @READONLY
+VTX_MAX_POWER 10000 @READONLY
+
+# ---- tuning locks: fill in after flight tuning is finalized ----
+# Copy the tuned values here and append @READONLY, e.g.:
+# ATC_RAT_RLL_P 0.135 @READONLY
+# ATC_RAT_RLL_I 0.135 @READONLY
+# ATC_RAT_RLL_D 0.0036 @READONLY
+# ATC_RAT_PIT_P 0.135 @READONLY
+# ATC_RAT_YAW_P 0.18 @READONLY
+# ATC_ANG_RLL_P 4.5 @READONLY
+# INS_GYRO_FILTER 40 @READONLY
+# MOT_THST_EXPO 0.65 @READONLY
+# MOT_SPIN_MIN 0.15 @READONLY
+# MOT_SPIN_ARM 0.10 @READONLY
